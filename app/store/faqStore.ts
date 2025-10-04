@@ -11,8 +11,6 @@ export const useFAQStore = create<FAQStore>((set, get) => ({
 
   toggleItem: (id: number) => {
     set((state) => {
-      // If the clicked item is already open, close it
-      // Otherwise, open the clicked item (and close any other open item)
       const newOpenItem = state.openItem === id ? null : id;
       return { openItem: newOpenItem };
     });

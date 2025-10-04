@@ -4,26 +4,43 @@ import React from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { faqData } from "../data/faqData";
 import { useFAQStore } from "../store/faqStore";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const FAQ = () => {
   const { toggleItem, isOpen } = useFAQStore();
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: faqRef, isVisible: faqVisible } = useScrollAnimation();
 
   return (
     <div className="bg-[#F6F8FE] py-16">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-1000 ${
+            headerVisible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          }`}
+        >
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-800">
             Frequently asked questions
           </h2>
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          {faqData.map((item) => (
+        <div ref={faqRef} className="max-w-4xl mx-auto space-y-4">
+          {faqData.map((item, index) => (
             <div
               key={item.id}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className={`bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 ${
+                faqVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                transitionDelay: faqVisible ? `${index * 0.2}s` : "0s",
+              }}
             >
               {/* Question */}
               <button
