@@ -3,7 +3,7 @@ import { featureCards } from "../data/featureCards";
 
 const WhyChooseCargo = () => {
   return (
-    <div className="bg-gray-50 py-20">
+    <div className="bg-gray-50 py-10">
       <div className="container mx-auto px-6">
         {/* Header Section */}
         <div className="text-center mb-16">
