@@ -1,10 +1,15 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { menuItems } from "../data/menuItems";
 import Link from "next/link";
 import { FaApple } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import { pagesData } from "../data/pagesData";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <div className="flex justify-around items-center py-6">
       <Image
@@ -14,14 +19,18 @@ const Header = () => {
         height={54}
         className="w-[96px] h-[54px] object-cover"
       />
-      <div className="flex gap-7">
-        {menuItems.map((item) => (
+      <div className="flex gap-7 ml-24">
+        {pagesData.map((item) => (
           <Link
-            className="text-[#808080] hover:text-[#000000]"
+            className={`hover:text-[#000000] transition-colors duration-200 ${
+              pathname === item.href
+                ? "text-[#000000] font-semibold"
+                : "text-[#808080]"
+            }`}
             href={item.href}
-            key={item.name}
+            key={item.title}
           >
-            {item.name}
+            {item.title}
           </Link>
         ))}
       </div>
