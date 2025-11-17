@@ -65,15 +65,21 @@ const HeroSection = () => {
                 </div>
               </button>
 
-              <button className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] border-2 border-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-black/20 hover:scale-105 hover:-translate-y-1">
+              <a 
+                href="/downloads/marte.apk" 
+                download="Marte.apk"
+                className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] border-2 border-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-black/20 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
+              >
                 <div className="relative z-10 flex items-center space-x-3">
-                  <FaGooglePlay className="w-5 h-5" />
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
                   <div className="text-left">
-                    <div className="text-xs opacity-60 font-georgian">ჩამოტვირთე</div>
-                    <div className="text-sm font-bold font-georgian">Google Play</div>
+                    <div className="text-xs opacity-60 font-georgian">ჩამოტვირთე APK</div>
+                    <div className="text-sm font-bold font-georgian">Android</div>
                   </div>
                 </div>
-              </button>
+              </a>
             </div>
 
             {/* Stats */}

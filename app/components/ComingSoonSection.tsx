@@ -81,16 +81,22 @@ const ComingSoonSection = () => {
               </div>
             </button>
 
-            <button className="group relative overflow-hidden bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1">
+            <a
+              href="/downloads/marte.apk"
+              download="Marte.apk"
+              className="group relative overflow-hidden bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
+            >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
               <div className="relative z-10 flex items-center space-x-3">
-                <FaGooglePlay className="w-5 h-5" />
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
                 <div className="text-left">
-                  <div className="text-xs opacity-80 font-georgian">ჩამოტვირთე</div>
-                  <div className="text-sm font-bold font-georgian">Google Play</div>
+                  <div className="text-xs opacity-80 font-georgian">ჩამოტვირთე APK</div>
+                  <div className="text-sm font-bold font-georgian">Android</div>
                 </div>
               </div>
-            </button>
+            </a>
           </div>
 
           {/* Info Text */}
