@@ -133,7 +133,7 @@ const HeroSection = () => {
               <div className="relative animate-float">
                 <Image
                   src="/header_car.png"
-                  alt="Cargo App"
+                  alt="Marte App"
                   width={600}
                   height={600}
                   className="w-full h-auto drop-shadow-2xl"

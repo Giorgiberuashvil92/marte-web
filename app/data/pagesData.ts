@@ -10,7 +10,7 @@ export const pagesData: PageData[] = [
   {
     id: "home",
     title: "მთავარი",
-    description: "მოგესალმებით Cargo-ში - თქვენი მანქანის მართვის ყოვლისმომცველი გადაწყვეტა",
+    description: "მოგესალმებით Marte-ში - თქვენი მანქანის მართვის ყოვლისმომცველი გადაწყვეტა",
     href: "/",
     isComingSoon: false,
   },

@@ -106,11 +106,11 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3">
                 <span className="text-[#0066FF]">📧</span>
-                <span className="text-white/60 text-sm font-georgian">info@cargo.ge</span>
+                <span className="text-white/60 text-sm font-georgian">info@marte.ge</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-[#0066FF]">📞</span>
-                <span className="text-white/60 text-sm font-georgian">+995 555 123 456</span>
+                <span className="text-white/60 text-sm font-georgian">+995 557422634</span>
               </li>
               <li className="flex items-start space-x-3">
                 <span className="text-[#0066FF]">📍</span>
