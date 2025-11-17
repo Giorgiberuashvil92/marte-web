@@ -7,6 +7,17 @@ import { useScrollAnimation } from "../hooks/useScrollAnimation";
 const ComingSoonSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
+  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Force download on all devices
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = '/downloads/marte.apk';
+    link.download = 'Marte.apk';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section
       ref={ref}
@@ -84,6 +95,7 @@ const ComingSoonSection = () => {
             <a
               href="/downloads/marte.apk"
               download="Marte.apk"
+              onClick={handleDownloadAPK}
               className="group relative overflow-hidden bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>

@@ -40,7 +40,7 @@ const Footer = () => {
               {[
                 { icon: FaFacebook, newTab: true, blank: true, href: "https://www.facebook.com/MARTEtheapp" },
                 { icon: FaInstagram, newTab: true, blank: true, href: "https://www.instagram.com/marte_app/" },
-                { icon: FaTiktok, newTab: true, blank: true, href: "#" },
+                { icon: FaTiktok, newTab: true, blank: true, href: "https://www.tiktok.com/@marte.app" },
                 { icon: FaLinkedin, newTab: true, blank: true, href: "https://www.linkedin.com/company/109395086" },
               ].map((social, index) => (
                 <a

@@ -5,6 +5,17 @@ import Image from "next/image";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 
 const HeroSection = () => {
+  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Force download on all devices
+    e.preventDefault();
+    const link = document.createElement('a');
+    link.href = '/downloads/marte.apk';
+    link.download = 'Marte.apk';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-24">
       {/* Animated Background Grid */}
@@ -68,6 +79,7 @@ const HeroSection = () => {
               <a 
                 href="/downloads/marte.apk" 
                 download="Marte.apk"
+                onClick={handleDownloadAPK}
                 className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] border-2 border-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-black/20 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
               >
                 <div className="relative z-10 flex items-center space-x-3">
