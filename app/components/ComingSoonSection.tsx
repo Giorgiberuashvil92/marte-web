@@ -1,16 +1,16 @@
 "use client";
 
 import React from "react";
-import { FaApple, FaPlay } from "react-icons/fa";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const ComingSoonSection = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div
+    <section
       ref={ref}
-      className="h-[428px] flex items-center justify-center px-6 relative overflow-hidden"
+      className="relative py-32 overflow-hidden"
       style={{
         backgroundImage: `url('/comig_soon.png')`,
         backgroundSize: "cover",
@@ -18,65 +18,101 @@ const ComingSoonSection = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      {/* Blur overlay */}
-      <div className="absolute inset-0 bg-black/70" />
+      {/* Dark Overlay with Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A]/95 via-[#0066FF]/20 to-[#0A0A0A]/95"></div>
+      
+      {/* Animated Grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
 
-      {/* Main Content */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
-        {/* Main Title */}
-        <h2
-          className={`text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          Ready to Simplify Your Life?
-        </h2>
-
-        {/* Description */}
-        <p
-          className={`text-lg lg:text-xl text-white mb-8 leading-relaxed max-w-2xl mx-auto transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ transitionDelay: isVisible ? "0.2s" : "0s" }}
-        >
-          Easily manage car washes, track fines, book essential services, and
-          shop for parts all in one simple, reliable app designed to make car
-          ownership effortless.
-        </p>
-
-        {/* Download Buttons */}
-        <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ transitionDelay: isVisible ? "0.4s" : "0s" }}
-        >
-          <button className="group cursor-pointer flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 min-w-[180px] active:scale-95">
-            <FaApple className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-            <span className="group-hover:text-gray-700 transition-colors duration-300">
-              Download for iOS
+      {/* Content */}
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          {/* Badge */}
+          <div
+            className={`inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span className="w-2 h-2 bg-[#0066FF] rounded-full animate-pulse"></span>
+            <span className="text-xs font-semibold text-white tracking-wide">
+              მზად ხარ?
             </span>
-          </button>
+          </div>
 
-          <button className="group flex cursor-pointer items-center justify-center gap-3 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-xl font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 hover:-translate-y-1 min-w-[180px] active:scale-95">
-            <FaPlay className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
-            <span className="group-hover:text-gray-700 transition-colors duration-300">
-              Download for Android
+          {/* Heading */}
+          <h2
+            className={`text-5xl lg:text-7xl font-black text-white leading-tight transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: isVisible ? "0.1s" : "0s" }}
+          >
+            გაამარტივე შენი{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10">ცხოვრება</span>
+              <span className="absolute -bottom-2 left-0 right-0 h-3 bg-[#0066FF] -rotate-1"></span>
             </span>
-          </button>
+          </h2>
+
+          {/* Description */}
+          <p
+            className={`text-xl text-white/80 leading-relaxed max-w-2xl mx-auto font-georgian transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: isVisible ? "0.2s" : "0s" }}
+          >
+            ჩამოტვირთე MARTE დღესვე და დაიწყე დროის დაზოგვა. 
+            ყველა სერვისი ერთ ადგილას, მუდმივ ხელმისაწვდომობაში.
+          </p>
+
+          {/* Download Buttons */}
+          <div
+            className={`flex flex-wrap gap-5 justify-center transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: isVisible ? "0.3s" : "0s" }}
+          >
+            <button className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1">
+              <div className="relative z-10 flex items-center space-x-3">
+                <FaApple className="w-6 h-6" />
+                <div className="text-left">
+                  <div className="text-xs opacity-60 font-georgian">ჩამოტვირთე</div>
+                  <div className="text-sm font-bold font-georgian">App Store</div>
+                </div>
+              </div>
+            </button>
+
+            <button className="group relative overflow-hidden bg-[#0066FF] hover:bg-[#0052CC] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
+              <div className="relative z-10 flex items-center space-x-3">
+                <FaGooglePlay className="w-5 h-5" />
+                <div className="text-left">
+                  <div className="text-xs opacity-80 font-georgian">ჩამოტვირთე</div>
+                  <div className="text-sm font-bold font-georgian">Google Play</div>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          {/* Info Text */}
+          <p
+            className={`text-sm text-white/60 font-georgian transition-all duration-1000 ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+            style={{ transitionDelay: isVisible ? "0.4s" : "0s" }}
+          >
+            ხელმისაწვდომია iOS 14+ და Android 8+ ვერსიებზე
+          </p>
+
+          {/* Decorative Line */}
+          <div
+            className={`w-24 h-1 bg-gradient-to-r from-transparent via-[#0066FF] to-transparent mx-auto transition-all duration-1000 ${
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-0"
+            }`}
+            style={{ transitionDelay: isVisible ? "0.5s" : "0s" }}
+          ></div>
         </div>
-
-        {/* Compatibility Text */}
-        <p
-          className={`text-white text-sm opacity-80 transition-all duration-1000 ${
-            isVisible ? "opacity-80 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ transitionDelay: isVisible ? "0.6s" : "0s" }}
-        >
-          Available on iOS 14+ and Android 8+
-        </p>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -7,20 +7,20 @@ export interface FAQItem {
 export const faqData: FAQItem[] = [
   {
     id: 1,
-    question: "Lore ipsum",
+    question: "როგორ დავრეგისტრირდე აპლიკაციაში?",
     answer:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "რეგისტრაცია მარტივია! ჩამოტვირთე აპლიკაცია App Store-დან ან Google Play-დან, გახსენი და დააჭირე 'რეგისტრაცია' ღილაკს. შეიყვანე შენი მობილურის ნომერი, ელ-ფოსტა და შექმენი უსაფრთხო პაროლი. მიიღებ SMS კოდს დასადასტურებლად - მხოლოდ ამის შემდეგ დაიწყებ სარგებლობას ყველა სერვისით.",
   },
   {
     id: 2,
-    question: "Lore ipsum",
+    question: "რა სერვისებს სთავაზობს Marte?",  
     answer:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "Marte გთავაზობს მანქანის ყოვლისმომცველ მომსახურებას: ავტორეცხვების დაჯავშვნას, ჯარიმების შემოწმებას, ტექდახმარების გამოძახებას, ავტონაწილების ყიდვას, საწვავის ფასდაკლებებს და მანქანის სერვისების მონიტორინგს. ყველაფერი ერთ აპლიკაციაში, მარტივად და სწრაფად.",
   },
   {
     id: 3,
-    question: "Lore ipsum",
+    question: "როგორ მივიღო ფასდაკლებას საწვავზე?",
     answer:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      "საწვავის ფასდაკლების მისაღებად, უბრალოდ დააინსტალირე Marte აპი და დარეგისტრირდი. დასაწყობებაზე სპეციალური QR კოდის დასკანერებით ავტომატურად მიიღებ ფასდაკლებას. ფასდაკლებები მოქმედებს ჩვენს პარტნიორ ბენზინგასამართ სადგურებზე მთელი საქართველოს მასშტაბით.",
   },
 ];

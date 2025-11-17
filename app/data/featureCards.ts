@@ -19,49 +19,49 @@ export const featureCards: FeatureCard[] = [
   {
     id: 1,
     icon: FaCar,
-    title: "Car wash",
+    title: "ავტორეცხვა",
     description:
-      "Keep your car shining, anytime, anywhere. Book your wash in seconds.",
+      "შენი მანქანა ყოველთვის სუფთა და მბზინავი. დაჯავშნე რეცხვა რამდენიმე წამში, ნებისმიერ დროს, ნებისმიერ ადგილზე.",
     iconColor: "bg-orange-500",
   },
   {
     id: 2,
     icon: FaBell,
-    title: "Smart Notifications",
+    title: "ჭკვიანი შეტყობინებები",
     description:
-      "Stay informed about fines, car service reminders, and important updates automatically.",
+      "იყავი ინფორმირებული ჯარიმების, სერვისების დროისა და მნიშვნელოვანი განახლებების შესახებ. ავტომატური შეხსენებები უზრუნველყოფს კომფორტს.",
     iconColor: "bg-teal-500",
   },
   {
     id: 3,
     icon: FaWrench,
-    title: "Auto Parts Marketplace",
+    title: "ავტონაწილების მაღაზია",
     description:
-      "Find genuine parts and accessories for your vehicle with competitive prices and fast delivery.",
+      "იპოვე ორიგინალური ნაწილები და აქსესუარები შენი მანქანისთვის. კონკურენტული ფასები და სწრაფი მიწოდება მთელი საქართველოს მასშტაბით.",
     iconColor: "bg-blue-500",
   },
   {
     id: 4,
     icon: FaTruckLoading,
-    title: "Emergency Services",
+    title: "გადაუდებელი დახმარება",
     description:
-      "Request tow truck and emergency roadside assistance with just a few taps when you need it most.",
+      "გამოიძახე ევაკუატორი და საგზაო დახმარება რამდენიმე შეხებით. ჩვენი გუნდი მზადაა დაგეხმაროს 24/7, როდესაც ყველაზე მეტად გჭირდება.",
     iconColor: "bg-purple-500",
   },
   {
     id: 5,
     icon: FaGasPump,
-    title: "Fuel Discounts",
+    title: "საწვავის ფასდაკლება",
     description:
-      "Save money on fuel with exclusive discounts. Simply scan QR codes at participating stations.",
+      "დაზოგე ფული საწვავზე ექსკლუზიური ფასდაკლებებით. უბრალოდ დაასკანერე QR კოდი პარტნიორ ბენზინგასამართ სადგურებზე და ისარგებლე შეღავათით.",
     iconColor: "bg-yellow-500",
   },
   {
     id: 6,
     icon: FaShieldAlt,
-    title: "Secure & Reliable",
+    title: "უსაფრთხო და საიმედო",
     description:
-      "Your data is protected with enterprise-grade security and reliable service uptime.",
+      "შენი მონაცემები დაცულია ბანკის დონის უსაფრთხოებით. საიმედო სერვისი უწყვეტი მუშაობით უზრუნველყოფს მაქსიმალურ კომფორტს.",
     iconColor: "bg-pink-500",
   },
 ];
