@@ -22,7 +22,7 @@ export default function About() {
             </h1>
             
             <p className="text-xl text-[#666666] leading-relaxed font-georgian">
-              Cargo არის თანამედროვე პლატფორმა, რომელიც აერთიანებს ყველა 
+              Marte არის თანამედროვე პლატფორმა, რომელიც აერთიანებს ყველა 
               სერვისს თქვენი მანქანისთვის ერთ ადგილას.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function About() {
 
               <div>
                 <h2 className="text-3xl font-black text-[#0A0A0A] mb-4 font-georgian">
-                  რატომ Cargo?
+                  რატომ Marte?
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {[

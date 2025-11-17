@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaTiktok } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,10 +38,10 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               {[
-                { icon: FaFacebook, href: "#" },
-                { icon: FaInstagram, href: "#" },
-                { icon: FaTwitter, href: "#" },
-                { icon: FaLinkedin, href: "#" },
+                { icon: FaFacebook, newTab: true, blank: true, href: "https://www.facebook.com/MARTEtheapp" },
+                { icon: FaInstagram, newTab: true, blank: true, href: "https://www.instagram.com/marte_app/" },
+                { icon: FaTiktok, newTab: true, blank: true, href: "#" },
+                { icon: FaLinkedin, newTab: true, blank: true, href: "https://www.linkedin.com/company/109395086" },
               ].map((social, index) => (
                 <a
                   key={index}
