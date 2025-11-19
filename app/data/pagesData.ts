@@ -23,8 +23,8 @@ export const pagesData: PageData[] = [
   },
   {
     id: "pricing",
-    title: "ფასები",
-    description: "აირჩიე შენი პაკეტი - მარტივი და გამჭვირვალე ფასები",
+    title: "განვადება",
+    description: "გადაიხადე ჯარიმები, სერვისები და ნაწილები მოსახერხებელი განვადებით",
     href: "/pricing",
     isComingSoon: false,
   },
