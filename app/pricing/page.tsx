@@ -1,76 +1,68 @@
+"use client";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { FaCheck, FaCreditCard, FaShieldAlt, FaClock, FaMobileAlt } from "react-icons/fa";
+import { useState } from "react";
 
-const pricingPlans = [
+const paymentOptions = [
   {
-    id: "basic",
-    name: "ბაზისური",
-    price: "0",
-    period: "თვე",
-    description: "იდეალურია პირადი გამოყენებისთვის",
+    id: "fine",
+    title: "ჯარიმის გადახდა",
+    icon: FaCreditCard,
+    description: "გადაიხადე ტრანსპორტის ჯარიმები მოსახერხებელი განვადებით",
     features: [
-      "ავტორეცხვის დაჯავშნა",
-      "ჯარიმების შემოწმება",
-      "ძირითადი შეტყობინებები",
-      "1 მანქანის მართვა",
-      "ძირითადი მხარდაჭერა",
+      "0% საპროცენტო განვადება",
+      "3-12 თვე განვადება",
+      "მყისიერი დამტკიცება",
+      "ონლაინ გადახდა",
+      "SMS შეხსენებები",
     ],
-    notIncluded: [
-      "პრემიუმ ფასდაკლებები",
+    color: "from-[#0066FF] to-[#0052CC]",
+  },
+  {
+    id: "service",
+    title: "სერვისის გადახდა",
+    icon: FaShieldAlt,
+    description: "გადაიხადე მანქანის სერვისები და შეკეთება განვადებით",
+    features: [
+      "0-5% საპროცენტო განვადება",
+      "6-24 თვე განვადება",
+      "დიდი თანხების განვადება",
+      "პარტნიორ სერვისებზე ფასდაკლება",
       "პრიორიტეტული მხარდაჭერა",
-      "ულიმიტო მანქანები",
     ],
-    popular: false,
-    ctaText: "დაიწყე უფასოდ",
-    ctaColor: "bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] border-2 border-[#0A0A0A]",
+    color: "from-[#3DDC84] to-[#30D158]",
   },
   {
-    id: "pro",
-    name: "პროფესიონალი",
-    price: "29",
-    period: "თვე",
-    description: "ყველაზე პოპულარული არჩევანი",
+    id: "parts",
+    title: "ნაწილების გადახდა",
+    icon: FaMobileAlt,
+    description: "იყიდე ავტონაწილები და აქსესუარები განვადებით",
     features: [
-      "ყველაფერი ბაზისურ პაკეტში",
-      "ულიმიტო მანქანები",
-      "პრემიუმ ფასდაკლებები",
-      "პრიორიტეტული მხარდაჭერა 24/7",
-      "ავტონაწილების ექსკლუზიური ფასები",
-      "საწვავის ფასდაკლება 10%",
-      "გადაუდებელი დახმარება",
-      "ანალიტიკა და ანგარიშები",
+      "0% საპროცენტო განვადება",
+      "3-6 თვე განვადება",
+      "ყველა პარტნიორ მაღაზიაში",
+      "სწრაფი მიწოდება",
+      "გარანტია",
     ],
-    notIncluded: [],
-    popular: true,
-    ctaText: "აირჩიე პროფესიონალი",
-    ctaColor: "bg-[#0A0A0A] hover:bg-[#0066FF] text-white",
-  },
-  {
-    id: "enterprise",
-    name: "ბიზნესი",
-    price: "99",
-    period: "თვე",
-    description: "კომპანიებისთვის და ფლოტებისთვის",
-    features: [
-      "ყველაფერი პროფესიონალ პაკეტში",
-      "ულიმიტო მანქანები",
-      "დედიკატირებული მენეჯერი",
-      "API წვდომა",
-      "კუსტომიზაცია",
-      "საწვავის ფასდაკლება 15%",
-      "პრიორიტეტული ტექდახმარება",
-      "ვებინარები და ტრენინგები",
-      "ბრენდინგი და ლოგო",
-    ],
-    notIncluded: [],
-    popular: false,
-    ctaText: "დაგვიკავშირდი",
-    ctaColor: "bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] border-2 border-[#0A0A0A]",
+    color: "from-[#FF6B35] to-[#F7931E]",
   },
 ];
 
 export default function Pricing() {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [amount, setAmount] = useState("");
+  const [months, setMonths] = useState("3");
+
+  const calculateMonthly = () => {
+    if (!amount || !selectedOption) return 0;
+    const total = parseFloat(amount);
+    const monthsNum = parseInt(months);
+    if (isNaN(total) || isNaN(monthsNum) || monthsNum === 0) return 0;
+    return (total / monthsNum).toFixed(2);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -81,68 +73,52 @@ export default function Pricing() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center space-x-2 bg-[#F5F5F5] rounded-full px-4 py-2 mb-6">
               <span className="text-xs font-bold text-[#0066FF] tracking-widest uppercase">
-                ფასები
+                გადახდა
               </span>
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-black text-[#0A0A0A] mb-6 leading-tight">
-              აირჩიე შენი{" "}
-              <span className="text-gradient">პაკეტი</span>
+              გადაიხადე{" "}
+              <span className="text-gradient">განვადებით</span>
             </h1>
             
             <p className="text-xl text-[#666666] leading-relaxed font-georgian">
-              მარტივი, გამჭვირვალე ფასები. არანაირი ფარული გადასახადები.
+              გადაიხადე ჯარიმები, სერვისები და ნაწილები მოსახერხებელი განვადებით. 
+              0% საპროცენტო განვადება ყველა სერვისზე.
             </p>
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="container mx-auto px-6">
+        {/* Payment Options */}
+        <div className="container mx-auto px-6 mb-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingPlans.map((plan) => (
-              <div
-                key={plan.id}
-                className={`relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 ${
-                  plan.popular
-                    ? "border-[#0066FF] ring-4 ring-[#0066FF]/10"
-                    : "border-[#E5E5E5] hover:border-[#0066FF]/50"
-                }`}
-              >
-                {/* Popular Badge */}
-                {plan.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-[#0066FF] to-[#0052CC] text-white px-4 py-1 rounded-full text-xs font-bold">
-                      ყველაზე პოპულარული
-                    </div>
+            {paymentOptions.map((option) => {
+              const IconComponent = option.icon;
+              return (
+                <div
+                  key={option.id}
+                  onClick={() => setSelectedOption(option.id)}
+                  className={`relative bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-2 cursor-pointer ${
+                    selectedOption === option.id
+                      ? "border-[#0066FF] ring-4 ring-[#0066FF]/10"
+                      : "border-[#E5E5E5] hover:border-[#0066FF]/50"
+                  }`}
+                >
+                  {/* Icon */}
+                  <div className={`w-16 h-16 bg-gradient-to-br ${option.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}>
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
-                )}
 
-                {/* Plan Header */}
-                <div className="mb-8">
                   <h3 className="text-2xl font-black text-[#0A0A0A] mb-2 font-georgian">
-                    {plan.name}
+                    {option.title}
                   </h3>
                   <p className="text-sm text-[#666666] font-georgian mb-6">
-                    {plan.description}
+                    {option.description}
                   </p>
-                  
-                  {/* Price */}
-                  <div className="flex items-baseline space-x-2">
-                    {plan.price === "0" ? (
-                      <span className="text-5xl font-black text-[#0A0A0A]">უფასო</span>
-                    ) : (
-                      <>
-                        <span className="text-5xl font-black text-[#0A0A0A]">{plan.price}₾</span>
-                        <span className="text-lg text-[#666666] font-georgian">/{plan.period}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
 
-                {/* Features */}
-                <div className="space-y-4 mb-8">
+                  {/* Features */}
                   <div className="space-y-3">
-                    {plan.features.map((feature, index) => (
+                    {option.features.map((feature, index) => (
                       <div key={index} className="flex items-start space-x-3">
                         <div className="flex-shrink-0 w-5 h-5 bg-[#0066FF] rounded-full flex items-center justify-center mt-0.5">
                           <FaCheck className="w-3 h-3 text-white" />
@@ -150,63 +126,139 @@ export default function Pricing() {
                         <span className="text-sm text-[#333333] font-georgian">{feature}</span>
                       </div>
                     ))}
-                    
-                    {plan.notIncluded.map((notFeature, index) => (
-                      <div key={`not-${index}`} className="flex items-start space-x-3 opacity-50">
-                        <div className="flex-shrink-0 w-5 h-5 bg-[#E5E5E5] rounded-full flex items-center justify-center mt-0.5">
-                          <FaTimes className="w-3 h-3 text-[#666666]" />
-                        </div>
-                        <span className="text-sm text-[#666666] font-georgian line-through">
-                          {notFeature}
-                        </span>
-                      </div>
-                    ))}
                   </div>
-                </div>
 
-                {/* CTA Button */}
-                <button
-                  className={`w-full py-4 px-6 rounded-2xl font-bold transition-all duration-500 shadow-lg hover:shadow-xl hover:scale-105 ${plan.ctaColor} font-georgian`}
-                >
-                  {plan.ctaText}
-                </button>
-              </div>
-            ))}
+                  {/* Selected Indicator */}
+                  {selectedOption === option.id && (
+                    <div className="absolute top-4 right-4 w-6 h-6 bg-[#0066FF] rounded-full flex items-center justify-center">
+                      <FaCheck className="w-4 h-4 text-white" />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
-        {/* FAQ Section */}
-        <div className="container mx-auto px-6 mt-32">
+        {/* Calculator Section */}
+        {selectedOption && (
+          <div className="container mx-auto px-6 mb-16">
+            <div className="max-w-2xl mx-auto bg-[#F5F5F5] rounded-3xl p-8 shadow-2xl">
+              <h2 className="text-3xl font-black text-[#0A0A0A] mb-8 text-center font-georgian">
+                განვადების კალკულატორი
+              </h2>
+
+              <div className="space-y-6">
+                {/* Amount Input */}
+                <div>
+                  <label className="block text-sm font-bold text-[#0A0A0A] mb-2 font-georgian">
+                    თანხა (₾)
+                  </label>
+                  <input
+                    type="number"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    placeholder="მაგ: 500"
+                    className="w-full px-6 py-4 bg-white rounded-2xl border-2 border-[#E5E5E5] focus:border-[#0066FF] outline-none transition-all duration-300 text-lg font-bold font-georgian"
+                  />
+                </div>
+
+                {/* Months Select */}
+                <div>
+                  <label className="block text-sm font-bold text-[#0A0A0A] mb-2 font-georgian">
+                    განვადების ვადა
+                  </label>
+                  <select
+                    value={months}
+                    onChange={(e) => setMonths(e.target.value)}
+                    className="w-full px-6 py-4 bg-white rounded-2xl border-2 border-[#E5E5E5] focus:border-[#0066FF] outline-none transition-all duration-300 text-lg font-bold font-georgian"
+                  >
+                    <option value="3">3 თვე</option>
+                    <option value="6">6 თვე</option>
+                    <option value="9">9 თვე</option>
+                    <option value="12">12 თვე</option>
+                    {selectedOption === "service" && (
+                      <>
+                        <option value="18">18 თვე</option>
+                        <option value="24">24 თვე</option>
+                      </>
+                    )}
+                  </select>
+                </div>
+
+                {/* Result */}
+                {amount && parseFloat(amount) > 0 && (
+                  <div className="bg-white rounded-2xl p-6 border-2 border-[#0066FF]">
+                    <div className="text-center space-y-2">
+                      <div className="text-sm text-[#666666] font-georgian">ყოველთვიური გადასახადი</div>
+                      <div className="text-4xl font-black text-[#0066FF] font-georgian">
+                        {calculateMonthly()} ₾
+                      </div>
+                      <div className="text-xs text-[#666666] font-georgian">
+                        სულ: {amount} ₾ / {months} თვე
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* CTA Button */}
+                <button
+                  disabled={!amount || parseFloat(amount) <= 0}
+                  className="w-full py-4 px-6 bg-[#0A0A0A] hover:bg-[#0066FF] disabled:bg-[#E5E5E5] disabled:text-[#999999] text-white rounded-2xl font-bold transition-all duration-500 shadow-xl hover:shadow-2xl hover:scale-105 font-georgian"
+                >
+                  განვადების დაწყება
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Benefits Section */}
+        <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-black text-[#0A0A0A] text-center mb-12 font-georgian">
-              ხშირად დასმული კითხვები
+              რატომ განვადება Marte-ში?
             </h2>
             
-            <div className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {[
                 {
-                  q: "შემიძლია უფასო პაკეტიდან გადავიდე პრემიუმზე?",
-                  a: "დიახ! ნებისმიერ დროს შეგიძლია განაახლო შენი პაკეტი. გადასვლა მყისიერია და არ დაკარგავ არსებულ მონაცემებს.",
+                  icon: FaClock,
+                  title: "სწრაფი დამტკიცება",
+                  desc: "განვადების მოთხოვნა დამტკიცდება რამდენიმე წუთში",
                 },
                 {
-                  q: "რა ხდება თუ გადავაჭარბებ ლიმიტს?",
-                  a: "ჩვენ გაგაფრთხილებთ როცა მიუახლოვდები ლიმიტს. შეგიძლია განაახლო პაკეტი ან გამოიყენო დამატებითი სერვისები.",
+                  icon: FaShieldAlt,
+                  title: "უსაფრთხო გადახდა",
+                  desc: "ბანკის დონის დაცვა და უსაფრთხო გადახდის სისტემა",
                 },
                 {
-                  q: "შემიძლია გავაუქმო ხელშეკრულება ნებისმიერ დროს?",
-                  a: "დიახ! შეგიძლია გააუქმო ხელშეკრულება ნებისმიერ დროს, ყოველგვარი ჯარიმის გარეშე. შენი მონაცემები შენთან დარჩება.",
+                  icon: FaCreditCard,
+                  title: "0% საპროცენტო",
+                  desc: "ყველა სერვისზე 0% საპროცენტო განვადება",
                 },
-              ].map((faq, index) => (
-                <div
-                  key={index}
-                  className="bg-[#F5F5F5] rounded-2xl p-6 border border-[#E5E5E5]"
-                >
-                  <h3 className="text-lg font-bold text-[#0A0A0A] mb-2 font-georgian">
-                    {faq.q}
-                  </h3>
-                  <p className="text-[#666666] font-georgian">{faq.a}</p>
-                </div>
-              ))}
+                {
+                  icon: FaMobileAlt,
+                  title: "მარტივი მართვა",
+                  desc: "მართე განვადება აპლიკაციიდან, ნებისმიერ დროს",
+                },
+              ].map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#E5E5E5]"
+                  >
+                    <div className="w-12 h-12 bg-[#0066FF]/10 rounded-xl flex items-center justify-center mb-4">
+                      <IconComponent className="w-6 h-6 text-[#0066FF]" />
+                    </div>
+                    <h3 className="text-xl font-bold text-[#0A0A0A] mb-2 font-georgian">
+                      {benefit.title}
+                    </h3>
+                    <p className="text-[#666666] font-georgian">{benefit.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -216,4 +268,3 @@ export default function Pricing() {
     </div>
   );
 }
-
