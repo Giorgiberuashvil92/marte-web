@@ -86,7 +86,7 @@ const Footer = () => {
                 { title: "დახმარება", href: "#" },
                 { title: "FAQ", href: "#faq" },
                 { title: "პირობები", href: "#" },
-                { title: "კონფიდენციალურობა", href: "#" },
+                { title: "კონფიდენციალურობა", href: "/privacy-policy" },
               ].map((link, index) => (
                 <li key={index}>
                   <Link
@@ -137,7 +137,7 @@ const Footer = () => {
                 პირობები
               </Link>
               <Link
-                href="#"
+                href="/privacy-policy"
                 className="text-white/40 hover:text-[#0066FF] text-sm transition-colors duration-300 font-georgian"
               >
                 კონფიდენციალურობა
