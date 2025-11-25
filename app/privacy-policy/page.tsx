@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
                   Introduction
                 </h2>
                 <p className="text-lg leading-relaxed">
-                  Welcome to Marte ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products and services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our mobile application.
+                  Welcome to Marte (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your privacy and ensuring you have a positive experience on our website and in using our products and services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our mobile application.
                 </p>
               </div>
 
@@ -171,7 +171,7 @@ export default function PrivacyPolicy() {
               {/* Children's Privacy */}
               <div>
                 <h2 className="text-3xl font-black text-[#0A0A0A] mb-4">
-                  Children's Privacy
+                  Children&apos;s Privacy
                 </h2>
                 <p className="text-lg leading-relaxed">
                   Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately.
@@ -186,7 +186,7 @@ export default function PrivacyPolicy() {
                   Changes to This Privacy Policy
                 </h2>
                 <p className="text-lg leading-relaxed">
-                  We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the "Last updated" date. We encourage you to review this Privacy Policy periodically.
+                  We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date. We encourage you to review this Privacy Policy periodically.
                 </p>
               </div>
 
