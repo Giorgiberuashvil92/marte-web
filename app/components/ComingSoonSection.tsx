@@ -100,7 +100,12 @@ const ComingSoonSection = () => {
             }`}
             style={{ transitionDelay: isVisible ? "0.3s" : "0s" }}
           >
-            <button className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1">
+            <a
+              href="https://apps.apple.com/ge/app/marte/id6753679575"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
+            >
               <div className="relative z-10 flex items-center space-x-3">
                 <FaApple className="w-6 h-6" />
                 <div className="text-left">
@@ -108,7 +113,7 @@ const ComingSoonSection = () => {
                   <div className="text-sm font-bold font-georgian">App Store</div>
                 </div>
               </div>
-            </button>
+            </a>
 
             <a
               href={APK_FILE}

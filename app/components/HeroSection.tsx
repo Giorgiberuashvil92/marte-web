@@ -85,7 +85,12 @@ const HeroSection = () => {
               className="flex flex-wrap gap-4 animate-fade-in-up"
               style={{ animationDelay: "0.3s" }}
             >
-              <button className="group relative overflow-hidden bg-[#0A0A0A] hover:bg-[#0066FF] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1">
+              <a 
+                href="https://apps.apple.com/ge/app/marte/id6753679575"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden bg-[#0A0A0A] hover:bg-[#0066FF] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
                 <div className="relative z-10 flex items-center space-x-3">
                   <FaApple className="w-6 h-6" />
@@ -94,7 +99,7 @@ const HeroSection = () => {
                     <div className="text-sm font-bold font-georgian">App Store</div>
                   </div>
                 </div>
-              </button>
+              </a>
 
               <a 
                 href={APK_FILE}
