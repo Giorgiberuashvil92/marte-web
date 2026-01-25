@@ -1,22 +1,40 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { FaApple, FaGooglePlay } from "react-icons/fa";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const ComingSoonSection = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const APK_FILE = '/downloads/app-release.apk';
+  const APK_NAME = 'Marte.apk';
 
-  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // Force download on all devices
-    e.preventDefault();
+  const downloadAPK = () => {
     const link = document.createElement('a');
-    link.href = '/downloads/marte.apk';
-    link.download = 'Marte.apk';
+    link.href = APK_FILE;
+    link.download = APK_NAME;
+    link.style.display = 'none';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
+
+  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    downloadAPK();
+  };
+
+  // ავტომატურად იწყებს გადმოწერას Android მოწყობილობებზე გვერდის ჩატვირთვისას
+  useEffect(() => {
+    const isAndroid = /Android/i.test(navigator.userAgent);
+    if (isAndroid && isVisible) {
+      // მცირე დაყოვნება, რომ სექცია სრულად ჩაიტვირთოს
+      const timer = setTimeout(() => {
+        downloadAPK();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isVisible]);
 
   return (
     <section
@@ -93,8 +111,8 @@ const ComingSoonSection = () => {
             </button>
 
             <a
-              href="/downloads/marte.apk"
-              download="Marte.apk"
+              href={APK_FILE}
+              download={APK_NAME}
               onClick={handleDownloadAPK}
               className="group relative overflow-hidden bg-gradient-to-br from-[#3DDC84] to-[#30D158] hover:from-[#32C673] hover:to-[#28BA4A] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-green-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center border-2 border-white/20"
             >
