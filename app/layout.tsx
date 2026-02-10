@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_Georgian } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -40,6 +41,7 @@ export default function RootLayout({
         className={`${inter.variable} ${notoSansGeorgian.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
