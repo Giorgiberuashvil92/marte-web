@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { FaAndroid, FaApple, FaDownload, FaChartLine } from "react-icons/fa";
+import { ClickEvent } from "../utils/tracking";
 
 const BACKEND_URL = 'https://marte-backend-production.up.railway.app';
 
@@ -78,7 +79,7 @@ export default function StatsPage() {
           setStats(localStats);
           setError('Backend API unavailable, showing local stats only');
         }
-      } catch (err) {
+      } catch {
         // Fallback to localStorage
         const localStats = getLocalStats();
         setStats(localStats);
@@ -96,20 +97,20 @@ export default function StatsPage() {
 
   const getLocalStats = (): Stats => {
     try {
-      const events = JSON.parse(localStorage.getItem("marte-clicks") || "[]");
+      const events: ClickEvent[] = JSON.parse(localStorage.getItem("marte-clicks") || "[]");
       return {
         total: events.length,
-        android: events.filter((e: any) => e.type === "android").length,
-        ios: events.filter((e: any) => e.type === "ios").length,
-        androidAuto: events.filter((e: any) => e.type === "android-auto").length,
+        android: events.filter((e: ClickEvent) => e.type === "android").length,
+        ios: events.filter((e: ClickEvent) => e.type === "ios").length,
+        androidAuto: events.filter((e: ClickEvent) => e.type === "android-auto").length,
         bySection: {
           hero: {
-            android: events.filter((e: any) => e.section === "hero" && e.type === "android").length,
-            ios: events.filter((e: any) => e.section === "hero" && e.type === "ios").length,
+            android: events.filter((e: ClickEvent) => e.section === "hero" && e.type === "android").length,
+            ios: events.filter((e: ClickEvent) => e.section === "hero" && e.type === "ios").length,
           },
           comingSoon: {
-            android: events.filter((e: any) => e.section === "coming-soon" && e.type === "android").length,
-            ios: events.filter((e: any) => e.section === "coming-soon" && e.type === "ios").length,
+            android: events.filter((e: ClickEvent) => e.section === "coming-soon" && e.type === "android").length,
+            ios: events.filter((e: ClickEvent) => e.section === "coming-soon" && e.type === "ios").length,
           },
         },
         recent: events.slice(-50).reverse(),
