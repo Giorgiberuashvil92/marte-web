@@ -1,40 +1,14 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { FaApple } from "react-icons/fa";
+import { trackButtonClick } from "../utils/tracking";
 
 const HeroSection = () => {
-  const APK_FILE = '/downloads/app-release.apk';
-  const APK_NAME = 'Marte.apk';
-
-  const downloadAPK = () => {
-    const link = document.createElement('a');
-    link.href = APK_FILE;
-    link.download = APK_NAME;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleAndroidClick = () => {
+    trackButtonClick('android', 'hero');
   };
-
-  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    downloadAPK();
-  };
-
-  // ავტომატურად იწყებს გადმოწერას გვერდის ჩატვირთვისას
-  useEffect(() => {
-    // შევამოწმოთ არის თუ არა Android მოწყობილობა
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    if (isAndroid) {
-      // მცირე დაყოვნება, რომ გვერდი სრულად ჩაიტვირთოს
-      const timer = setTimeout(() => {
-        downloadAPK();
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-white overflow-hidden pt-24">
@@ -89,6 +63,7 @@ const HeroSection = () => {
                 href="https://apps.apple.com/ge/app/marte/id6753679575"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackButtonClick('ios', 'hero')}
                 className="group relative overflow-hidden bg-[#0A0A0A] hover:bg-[#0066FF] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
@@ -102,9 +77,10 @@ const HeroSection = () => {
               </a>
 
               <a 
-                href={APK_FILE}
-                download={APK_NAME}
-                onClick={handleDownloadAPK}
+                href="https://play.google.com/store/apps/details?id=com.marte.marte"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleAndroidClick}
                 className="group relative overflow-hidden bg-gradient-to-br from-[#3DDC84] to-[#30D158] hover:from-[#32C673] hover:to-[#28BA4A] text-white border-2 border-[#3DDC84] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-green-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
               >
                 {/* Shimmer effect */}
@@ -116,7 +92,7 @@ const HeroSection = () => {
                     <path d="M17.6,9.48l1.84-3.18c0.16-0.31,0.04-0.69-0.26-0.85c-0.29-0.15-0.65-0.06-0.83,0.22l-1.88,3.24 c-2.86-1.21-6.08-1.21-8.94,0L5.65,5.67c-0.19-0.29-0.58-0.38-0.87-0.2C4.5,5.65,4.41,6.01,4.56,6.3L6.4,9.48 C3.3,11.25,1.28,14.44,1,18h22C22.72,14.44,20.7,11.25,17.6,9.48z M7,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25S8.25,13.31,8.25,14C8.25,14.69,7.69,15.25,7,15.25z M17,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25s1.25,0.56,1.25,1.25C18.25,14.69,17.69,15.25,17,15.25z"/>
                   </svg>
                   <div className="text-left">
-                    <div className="text-xs opacity-90 font-medium">ჩამოტვირთე APK</div>
+                    <div className="text-xs opacity-90 font-medium">ჩამოტვირთე</div>
                     <div className="text-base font-black tracking-wide">Android</div>
                   </div>
                 </div>

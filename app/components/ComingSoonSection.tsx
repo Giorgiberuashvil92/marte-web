@@ -1,40 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import React from "react";
+import { FaApple } from "react-icons/fa";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { trackButtonClick } from "../utils/tracking";
 
 const ComingSoonSection = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const APK_FILE = '/downloads/app-release.apk';
-  const APK_NAME = 'Marte.apk';
 
-  const downloadAPK = () => {
-    const link = document.createElement('a');
-    link.href = APK_FILE;
-    link.download = APK_NAME;
-    link.style.display = 'none';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleAndroidClick = () => {
+    trackButtonClick('android', 'coming-soon');
   };
-
-  const handleDownloadAPK = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    downloadAPK();
-  };
-
-  // ავტომატურად იწყებს გადმოწერას Android მოწყობილობებზე გვერდის ჩატვირთვისას
-  useEffect(() => {
-    const isAndroid = /Android/i.test(navigator.userAgent);
-    if (isAndroid && isVisible) {
-      // მცირე დაყოვნება, რომ სექცია სრულად ჩაიტვირთოს
-      const timer = setTimeout(() => {
-        downloadAPK();
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
-  }, [isVisible]);
 
   return (
     <section
@@ -104,6 +80,7 @@ const ComingSoonSection = () => {
               href="https://apps.apple.com/ge/app/marte/id6753679575"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackButtonClick('ios', 'coming-soon')}
               className="group relative overflow-hidden bg-white hover:bg-[#F5F5F5] text-[#0A0A0A] px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-white/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center"
             >
               <div className="relative z-10 flex items-center space-x-3">
@@ -116,9 +93,10 @@ const ComingSoonSection = () => {
             </a>
 
             <a
-              href={APK_FILE}
-              download={APK_NAME}
-              onClick={handleDownloadAPK}
+              href="https://play.google.com/store/apps/details?id=com.marte.marte"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleAndroidClick}
               className="group relative overflow-hidden bg-gradient-to-br from-[#3DDC84] to-[#30D158] hover:from-[#32C673] hover:to-[#28BA4A] text-white px-8 py-4 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-green-500/50 hover:scale-105 hover:-translate-y-1 inline-flex items-center border-2 border-white/20"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></div>
@@ -128,7 +106,7 @@ const ComingSoonSection = () => {
                   <path d="M17.6,9.48l1.84-3.18c0.16-0.31,0.04-0.69-0.26-0.85c-0.29-0.15-0.65-0.06-0.83,0.22l-1.88,3.24 c-2.86-1.21-6.08-1.21-8.94,0L5.65,5.67c-0.19-0.29-0.58-0.38-0.87-0.2C4.5,5.65,4.41,6.01,4.56,6.3L6.4,9.48 C3.3,11.25,1.28,14.44,1,18h22C22.72,14.44,20.7,11.25,17.6,9.48z M7,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25S8.25,13.31,8.25,14C8.25,14.69,7.69,15.25,7,15.25z M17,15.25c-0.69,0-1.25-0.56-1.25-1.25 c0-0.69,0.56-1.25,1.25-1.25s1.25,0.56,1.25,1.25C18.25,14.69,17.69,15.25,17,15.25z"/>
                 </svg>
                 <div className="text-left">
-                  <div className="text-xs opacity-90 font-medium font-georgian">ჩამოტვირთე APK</div>
+                  <div className="text-xs opacity-90 font-medium font-georgian">ჩამოტვირთე</div>
                   <div className="text-base font-black tracking-wide">Android</div>
                 </div>
               </div>
