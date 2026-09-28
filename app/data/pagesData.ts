@@ -22,6 +22,13 @@ export const pagesData: PageData[] = [
     isComingSoon: false,
   },
   {
+    id: "partners",
+    title: "პარტნიორები",
+    description: "იპოვე Marte-ს პარტნიორების შეთავაზებები",
+    href: "/partners",
+    isComingSoon: false,
+  },
+  {
     id: "pricing",
     title: "განვადება",
     description: "გადაიხადე ჯარიმები, სერვისები და ნაწილები მოსახერხებელი განვადებით",
@@ -40,6 +47,13 @@ export const pagesData: PageData[] = [
     title: "კონტაქტი",
     description: "დაუკავშირდი ჩვენს გუნდს",
     href: "/contact",
+    isComingSoon: false,
+  },
+  {
+    id: "portal",
+    title: "ჩემი პორტალი",
+    description: "მართე შენი მანქანები და სერვისები ერთ სივრცეში",
+    href: "/portal",
     isComingSoon: false,
   },
 ];

@@ -24,6 +24,35 @@ body {
   overflow-x: hidden;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), var(--font-noto-sans-georgian), Arial, Helvetica, sans-serif;
+}
+
+.landing-page > section:last-of-type {
+  display: none;
+}
+
+.landing-page > div.fixed.z-50:not(.download-modal) {
+  display: none;
+}
+
+/* Full-viewport marketing layout: sections breathe across the entire screen. */
+.landing-page [class~="max-w-[1280px]"],
+.landing-page [class~="max-w-[1120px]"],
+.landing-page [class~="max-w-[1000px]"] {
+  width: calc(100% - 48px);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.partners-page [class~="max-w-[1280px]"] {
+  width: calc(100% - 48px);
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_Georgian } from "next/font/google";
+import { Inter, Noto_Sans_Georgian, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,6 +10,12 @@ const inter = Inter({
 const notoSansGeorgian = Noto_Sans_Georgian({
   variable: "--font-noto-sans-georgian",
   subsets: ["georgian"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="ka">
       <body
-        className={`${inter.variable} ${notoSansGeorgian.variable} antialiased`}
+        className={`${inter.variable} ${notoSansGeorgian.variable} ${poppins.variable} antialiased`}
       >
         {children}
       </body>
